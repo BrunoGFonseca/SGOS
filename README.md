@@ -13,3 +13,4 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 ## Histórico de commits:
 
 - **Projeto Criado**: Criação dos arquivos de base para o correto funcionamento do projeto.
+- **Testando o REST**: Criação da pasta de resources junto com os arquivos CategoriaProdutoResource e CategoriaServicoResource e testando o metodo get de ambos arquivos.
