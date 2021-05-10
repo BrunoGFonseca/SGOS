@@ -1,26 +1,26 @@
 package com.brunofonseca.SGOS.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brunofonseca.SGOS.domain.CategoriaProduto;
+import com.brunofonseca.SGOS.services.CategoriaProdutoService;
 
 @RestController
 @RequestMapping(value="/categoria_produtos")
 public class CategoriaProdutoResource {
 	
-	@RequestMapping(method = RequestMethod.GET)
-	public List<CategoriaProduto> listar() {
+	@Autowired
+	private CategoriaProdutoService catProdService;
+	
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
-		CategoriaProduto catProd1 = new CategoriaProduto(1, "ProdutoMotor");
-		
-		List<CategoriaProduto> listaCatProdutos = new ArrayList<>();
-		listaCatProdutos.add(catProd1);
-		
-		return listaCatProdutos;
+		CategoriaProduto obj = catProdService.find(id);
+		return ResponseEntity.ok(obj);
 	}
 }
