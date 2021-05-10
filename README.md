@@ -15,3 +15,4 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **Projeto Criado**: Criação dos arquivos de base para o correto funcionamento do projeto.
 - **Testando o REST**: Criação da pasta de resources junto com os arquivos CategoriaProdutoResource e CategoriaServicoResource e testando o metodo get de ambos arquivos.
 - **Testando duas primeiras classes de dominio**: Ajuste nas classes CategoriaProdutoResource e CategoriaServicoResource, mocando categorias para testes. 
+- **Banco de dados H2 e criação automatica da base de dados**: Configuração do H2 e a criação automatica da base de dados a partir das classes de dominio.

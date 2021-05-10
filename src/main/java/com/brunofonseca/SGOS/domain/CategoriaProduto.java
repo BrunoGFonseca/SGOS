@@ -2,14 +2,20 @@ package com.brunofonseca.SGOS.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class CategoriaProduto implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	//Atributos
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
-	//Construtores
 	public CategoriaProduto() {
 	}
 
@@ -19,7 +25,6 @@ public class CategoriaProduto implements Serializable {
 		this.nome = nome;
 	}
 	
-	//Getters e Setters
 	public Integer getId() {
 		return id;
 	}
@@ -36,7 +41,6 @@ public class CategoriaProduto implements Serializable {
 		this.nome = nome;
 	}
 	
-	//HashCode e Equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;
