@@ -11,15 +11,15 @@ import com.brunofonseca.SGOS.domain.CategoriaProduto;
 import com.brunofonseca.SGOS.services.CategoriaProdutoService;
 
 @RestController
-@RequestMapping(value="/categoria_produtos")
+@RequestMapping(value = "/categoria_produtos")
 public class CategoriaProdutoResource {
-	
+
 	@Autowired
 	private CategoriaProdutoService catProdService;
-	
-	@RequestMapping(value="/{id}", method = RequestMethod.GET)
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		
+
 		CategoriaProduto obj = catProdService.find(id);
 		return ResponseEntity.ok(obj);
 	}

@@ -19,3 +19,4 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **Criando Repository e Service para CategoriaProduto e CategoriaServico**: Criando classes de Repository e de Service para os produtos e para os serviços da aplicação.
 - **Criando operação de instanciacao**: Criado as operações para instanciar categorias de servico e categorias de produtos.
 - **Produto e serviço com associacao muitos para muitos**: Associacao muitos para muitos para os produtos e servicos criado. 
+- **Ajuste nos EndPoins /categoria_produtos{id} e /categoria_servicos{id}**: Adicionando tratativa de erro, para caso seja passado um ID nao cadastrado. 

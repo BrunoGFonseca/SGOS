@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.brunofonseca.SGOS.domain.CategoriaServico;
 import com.brunofonseca.SGOS.repositories.CategoriaServicoRepository;
+import com.brunofonseca.SGOS.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaServicoService {
@@ -16,6 +17,7 @@ public class CategoriaServicoService {
 
 	public CategoriaServico find(Integer id) {
 		Optional<CategoriaServico> obj = repoServProd.findById(id);
-		return obj.orElse(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+		"Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaServico.class.getName()));
 	}
 }
