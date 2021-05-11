@@ -22,3 +22,4 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **Ajuste nos EndPoins /categoria_produtos{id} e /categoria_servicos{id}**: Adicionando tratativa de erro, para caso seja passado um ID nao cadastrado. <br /><br />
 - **Estado e Cidade adicionados**: Categoria Estado e categoria Cidade adicionados ao projeto. <br /><br />
 - **Cliente, TipoCliente, Telefone e Endereço - parte 1**: Nesse commit, foram adicionados as classes de cliente, TipoCliente (ENUM), Telefone(Entidade fraca, alocado dentro do cliente) e o Endereço. <br /><br />
+- **Cliente, TipoCliente, Telefone e Endereço - parte 2**: Nesse commit, foram criados um cliente com seus respectivos endereços e telefones para testes <br /><br />
