@@ -21,3 +21,4 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **Produto e serviço com associacao muitos para muitos**: Associacao muitos para muitos para os produtos e servicos criado. 
 - **Ajuste nos EndPoins /categoria_produtos{id} e /categoria_servicos{id}**: Adicionando tratativa de erro, para caso seja passado um ID nao cadastrado. 
 - **Estado e Cidade adicionados**: Categoria Estado e categoria Cidade adicionados ao projeto. 
+- **Cliente, TipoCliente, Telefone e Endereço - parte 1**: Nesse commit, foram adicionados as classes de cliente, TipoCliente (ENUM), Telefone(Entidade fraca, alocado dentro do cliente) e o Endereço. 
