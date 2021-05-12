@@ -25,4 +25,5 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **Cliente, TipoCliente, Telefone e Endereço - parte 2**: Nesse commit, foram criados um cliente com seus respectivos endereços e telefones para testes <br /><br />
 - **EndPoint /clientes/{id} criado**: Criação do acesso para os clientes via endpoint. <br /><br />
 - **Veiculo adicionado**: Categoria Veiculo adicionada ao projeto. <br /><br />
+- **Ordem de servico, EstadoPagamento e Pagamento**: Nesse commit as classes OrdemServiço, EstadoPagamento e Pagamento foram criadas. <br /><br />
 

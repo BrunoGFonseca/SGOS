@@ -1,5 +1,6 @@
 package com.brunofonseca.SGOS;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,14 @@ import com.brunofonseca.SGOS.domain.Cidade;
 import com.brunofonseca.SGOS.domain.Cliente;
 import com.brunofonseca.SGOS.domain.Endereco;
 import com.brunofonseca.SGOS.domain.Estado;
+import com.brunofonseca.SGOS.domain.OrdemServico;
+import com.brunofonseca.SGOS.domain.Pagamento;
+import com.brunofonseca.SGOS.domain.PagamentoComBoleto;
+import com.brunofonseca.SGOS.domain.PagamentoComCartao;
 import com.brunofonseca.SGOS.domain.Produto;
 import com.brunofonseca.SGOS.domain.Servico;
 import com.brunofonseca.SGOS.domain.Veiculo;
+import com.brunofonseca.SGOS.domain.enums.EstadoPagamento;
 import com.brunofonseca.SGOS.domain.enums.TipoCliente;
 import com.brunofonseca.SGOS.repositories.CategoriaProdutoRepository;
 import com.brunofonseca.SGOS.repositories.CategoriaServicoRepository;
@@ -23,6 +29,8 @@ import com.brunofonseca.SGOS.repositories.CidadeRepository;
 import com.brunofonseca.SGOS.repositories.ClienteRepository;
 import com.brunofonseca.SGOS.repositories.EnderecoRepository;
 import com.brunofonseca.SGOS.repositories.EstadoRepository;
+import com.brunofonseca.SGOS.repositories.OrdemServicoRepository;
+import com.brunofonseca.SGOS.repositories.PagamentoRepository;
 import com.brunofonseca.SGOS.repositories.ProdutoRepository;
 import com.brunofonseca.SGOS.repositories.ServicoRepository;
 import com.brunofonseca.SGOS.repositories.VeiculoRepository;
@@ -56,6 +64,12 @@ public class SgosApplication implements CommandLineRunner {
 	
 	@Autowired
 	private VeiculoRepository veiculoRepository;
+	
+	@Autowired
+	private OrdemServicoRepository ordemServicoRepository;
+	
+	@Autowired
+	private PagamentoRepository pagamentoRepository; 
 
 	public static void main(String[] args) {
 		SpringApplication.run(SgosApplication.class, args);
@@ -164,11 +178,30 @@ public class SgosApplication implements CommandLineRunner {
 		
 		//Instaciando veiculo
 		Veiculo v1 = new Veiculo(null, "Uno", "BHK8177", "1997", cli1);
+		Veiculo v2 = new Veiculo(null, "Celta", "DNK2292", "2002", cli1);
 		
 		//Associando veiculos ao cliente
-		cli1.getVeiculos().addAll(Arrays.asList(v1));
+		cli1.getVeiculos().addAll(Arrays.asList(v1, v2));
 		
 		//Salvando veiculo
-		veiculoRepository.saveAll(Arrays.asList(v1));
+		veiculoRepository.saveAll(Arrays.asList(v1, v2));
+		
+		//Instanciando ordens de serviço e pagamentos
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");		
+		
+		OrdemServico os1 = new OrdemServico(null, sdf.parse("09/05/2021 12:35"), cli1, v1);
+		OrdemServico os2 = new OrdemServico(null, sdf.parse("07/05/2021 10:15"), cli1, v2);
+		
+		Pagamento pagto1 = new PagamentoComCartao(null, EstadoPagamento.QUITADO, os1, 6);
+		os1.setPagamento(pagto1);
+		
+		Pagamento pagto2 = new PagamentoComBoleto(null, EstadoPagamento.PENDENTE, os2, sdf.parse("20/05/2021 00:00"), null);
+		os2.setPagamento(pagto2);
+		
+		cli1.getOrdensServicos().addAll(Arrays.asList(os1, os2));
+		
+		ordemServicoRepository.saveAll(Arrays.asList(os1, os2));
+		pagamentoRepository.saveAll(Arrays.asList(pagto1, pagto2));
 	}
 }
