@@ -2,7 +2,9 @@ package com.brunofonseca.SGOS.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -32,6 +35,9 @@ public class Servico implements Serializable {
 	)
 	private List<CategoriaServico> categoriaServicos = new ArrayList<>();
 
+	@OneToMany(mappedBy = "id.servico")
+	private Set<ServicoOrdem> servicos = new HashSet<>();
+
 	public Servico() {
 	}
 
@@ -40,6 +46,14 @@ public class Servico implements Serializable {
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
+	}
+	
+	public List<OrdemServico> getOrdensServicos(){
+		List<OrdemServico> listaOrdemS = new ArrayList<>();
+		for(ServicoOrdem x : servicos) {
+			listaOrdemS.add(x.getOrdemServico());
+		}
+		return listaOrdemS;
 	}
 
 	public Integer getId() {
@@ -72,6 +86,14 @@ public class Servico implements Serializable {
 
 	public void setCategoriaServicos(List<CategoriaServico> categoriaServicos) {
 		this.categoriaServicos = categoriaServicos;
+	}
+	
+	public Set<ServicoOrdem> getServicos() {
+		return servicos;
+	}
+
+	public void setServicos(Set<ServicoOrdem> servicos) {
+		this.servicos = servicos;
 	}
 
 	@Override

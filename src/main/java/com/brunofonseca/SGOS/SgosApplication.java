@@ -14,12 +14,14 @@ import com.brunofonseca.SGOS.domain.Cidade;
 import com.brunofonseca.SGOS.domain.Cliente;
 import com.brunofonseca.SGOS.domain.Endereco;
 import com.brunofonseca.SGOS.domain.Estado;
+import com.brunofonseca.SGOS.domain.ItemOrdem;
 import com.brunofonseca.SGOS.domain.OrdemServico;
 import com.brunofonseca.SGOS.domain.Pagamento;
 import com.brunofonseca.SGOS.domain.PagamentoComBoleto;
 import com.brunofonseca.SGOS.domain.PagamentoComCartao;
 import com.brunofonseca.SGOS.domain.Produto;
 import com.brunofonseca.SGOS.domain.Servico;
+import com.brunofonseca.SGOS.domain.ServicoOrdem;
 import com.brunofonseca.SGOS.domain.Veiculo;
 import com.brunofonseca.SGOS.domain.enums.EstadoPagamento;
 import com.brunofonseca.SGOS.domain.enums.TipoCliente;
@@ -29,9 +31,11 @@ import com.brunofonseca.SGOS.repositories.CidadeRepository;
 import com.brunofonseca.SGOS.repositories.ClienteRepository;
 import com.brunofonseca.SGOS.repositories.EnderecoRepository;
 import com.brunofonseca.SGOS.repositories.EstadoRepository;
+import com.brunofonseca.SGOS.repositories.ItemOrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.OrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.PagamentoRepository;
 import com.brunofonseca.SGOS.repositories.ProdutoRepository;
+import com.brunofonseca.SGOS.repositories.ServicoOrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.ServicoRepository;
 import com.brunofonseca.SGOS.repositories.VeiculoRepository;
 
@@ -70,6 +74,12 @@ public class SgosApplication implements CommandLineRunner {
 	
 	@Autowired
 	private PagamentoRepository pagamentoRepository; 
+	
+	@Autowired
+	private ItemOrdemServicoRepository itemOrdemServicoRepository;
+	
+	@Autowired
+	private ServicoOrdemServicoRepository servicoOrdemServicoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SgosApplication.class, args);
@@ -203,5 +213,38 @@ public class SgosApplication implements CommandLineRunner {
 		
 		ordemServicoRepository.saveAll(Arrays.asList(os1, os2));
 		pagamentoRepository.saveAll(Arrays.asList(pagto1, pagto2));
+		
+		//Instanciando itensOrdens e serviçosOrdens
+		
+		ItemOrdem io1 = new ItemOrdem(os1, p1, 0.00, 1, 15.00);
+		ItemOrdem io2 = new ItemOrdem(os2, p2, 0.00, 1, 9.99);
+		ItemOrdem io3 = new ItemOrdem(os2, p3, 0.00, 1, 20.00);
+		ItemOrdem io4 = new ItemOrdem(os2, p4, 0.00, 1, 12.00);
+		
+		ServicoOrdem so1 = new ServicoOrdem(os1, s1, 0.00, 1, 5.00);
+		ServicoOrdem so2 = new ServicoOrdem(os2, s2, 0.00, 1, 7.00);
+		ServicoOrdem so3 = new ServicoOrdem(os2, s3, 0.00, 1, 7.50);
+		ServicoOrdem so4 = new ServicoOrdem(os2, s4, 0.00, 1, 5.00);
+		
+		os1.getItens().addAll(Arrays.asList(io1));
+		os1.getServicos().addAll(Arrays.asList(so1));
+		
+		os2.getItens().addAll(Arrays.asList(io2, io3, io4));
+		os2.getServicos().addAll(Arrays.asList(so2, so3, so4));
+		
+		p1.getItens().addAll(Arrays.asList(io1));
+		p2.getItens().addAll(Arrays.asList(io2));
+		p3.getItens().addAll(Arrays.asList(io3));
+		p4.getItens().addAll(Arrays.asList(io4));
+		
+		s1.getServicos().addAll(Arrays.asList(so1));
+		s2.getServicos().addAll(Arrays.asList(so2));
+		s3.getServicos().addAll(Arrays.asList(so3));
+		s4.getServicos().addAll(Arrays.asList(so4));
+
+		
+		itemOrdemServicoRepository.saveAll(Arrays.asList(io1, io2, io3, io4));
+		servicoOrdemServicoRepository.saveAll(Arrays.asList(so1, so2, so3, so4));
+		
 	}
 }

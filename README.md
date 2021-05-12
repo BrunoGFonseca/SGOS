@@ -10,8 +10,10 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - SpringBoot version 2.4.5
 - Pacotes instalados SpringWEB
 
-## Histórico de commits:
+## Histórico de Commits:
+Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicação em duas partes. A primeira parte é composta pelas classes, relacionamentos e base de teste.
 
+### Primeira Parte
 - **Projeto Criado**: Criação dos arquivos de base para o correto funcionamento do projeto.<br /><br />
 - **Testando o REST**: Criação da pasta de resources junto com os arquivos CategoriaProdutoResource e CategoriaServicoResource e testando o metodo get de ambos arquivos.<br /><br />
 - **Testando duas primeiras classes de dominio**: Ajuste nas classes CategoriaProdutoResource e CategoriaServicoResource, mocando categorias para testes. <br /><br />
@@ -26,4 +28,5 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **EndPoint /clientes/{id} criado**: Criação do acesso para os clientes via endpoint. <br /><br />
 - **Veiculo adicionado**: Categoria Veiculo adicionada ao projeto. <br /><br />
 - **Ordem de servico, EstadoPagamento e Pagamento**: Nesse commit as classes OrdemServiço, EstadoPagamento e Pagamento foram criadas. <br /><br />
+- **ItemOrdem, ItemOrdemPk e ServicoOrdem, ServicoOrdemPK**: Nesse commit foi feito a relação entre os itens e serviços com as ordens. <br /><br />
 
