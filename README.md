@@ -24,3 +24,5 @@ Esse repositório está armazenando o SGOS, um sistema para controle de ordens d
 - **Cliente, TipoCliente, Telefone e Endereço - parte 1**: Nesse commit, foram adicionados as classes de cliente, TipoCliente (ENUM), Telefone(Entidade fraca, alocado dentro do cliente) e o Endereço. <br /><br />
 - **Cliente, TipoCliente, Telefone e Endereço - parte 2**: Nesse commit, foram criados um cliente com seus respectivos endereços e telefones para testes <br /><br />
 - **EndPoint /clientes/{id} criado**: Criação do acesso para os clientes via endpoint. <br /><br />
+- **Veiculo adicionado**: Categoria Veiculo adicionada ao projeto. <br /><br />
+

@@ -15,6 +15,7 @@ import com.brunofonseca.SGOS.domain.Endereco;
 import com.brunofonseca.SGOS.domain.Estado;
 import com.brunofonseca.SGOS.domain.Produto;
 import com.brunofonseca.SGOS.domain.Servico;
+import com.brunofonseca.SGOS.domain.Veiculo;
 import com.brunofonseca.SGOS.domain.enums.TipoCliente;
 import com.brunofonseca.SGOS.repositories.CategoriaProdutoRepository;
 import com.brunofonseca.SGOS.repositories.CategoriaServicoRepository;
@@ -24,6 +25,7 @@ import com.brunofonseca.SGOS.repositories.EnderecoRepository;
 import com.brunofonseca.SGOS.repositories.EstadoRepository;
 import com.brunofonseca.SGOS.repositories.ProdutoRepository;
 import com.brunofonseca.SGOS.repositories.ServicoRepository;
+import com.brunofonseca.SGOS.repositories.VeiculoRepository;
 
 @SpringBootApplication
 public class SgosApplication implements CommandLineRunner {
@@ -51,6 +53,9 @@ public class SgosApplication implements CommandLineRunner {
 	
 	@Autowired
 	private EnderecoRepository enderecoRepository;
+	
+	@Autowired
+	private VeiculoRepository veiculoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SgosApplication.class, args);
@@ -156,5 +161,14 @@ public class SgosApplication implements CommandLineRunner {
 		//Salvando clientes e enderecos.
 		clienteRepository.saveAll(Arrays.asList(cli1));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2));
+		
+		//Instaciando veiculo
+		Veiculo v1 = new Veiculo(null, "Uno", "BHK8177", "1997", cli1);
+		
+		//Associando veiculos ao cliente
+		cli1.getVeiculos().addAll(Arrays.asList(v1));
+		
+		//Salvando veiculo
+		veiculoRepository.saveAll(Arrays.asList(v1));
 	}
 }

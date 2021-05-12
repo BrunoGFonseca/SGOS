@@ -32,6 +32,9 @@ public class Cliente implements Serializable {
 	@JsonManagedReference
 	@OneToMany(mappedBy = "cliente")
 	private List<Endereco> enderecos = new ArrayList<>();
+	@JsonManagedReference
+	@OneToMany(mappedBy = "cliente")
+	private List<Veiculo> veiculos = new ArrayList<>();
 	
 	@ElementCollection
 	@CollectionTable(name = "TELEFONE")
@@ -96,6 +99,14 @@ public class Cliente implements Serializable {
 	public void setEnderecos(List<Endereco> enderecos) {
 		this.enderecos = enderecos;
 	}
+	
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
+	}
 
 	public Set<String> getTelefones() {
 		return telefones;
@@ -129,11 +140,4 @@ public class Cliente implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
-
 }
