@@ -5,10 +5,13 @@ import java.io.Serializable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class ServicoOrdem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@EmbeddedId
 	private ServicoOrdemPK id = new ServicoOrdemPK();
 	
@@ -28,18 +31,15 @@ public class ServicoOrdem implements Serializable {
 		this.preco = preco;
 	}
 	
+	@JsonIgnore
 	public OrdemServico getOrdemServico() {
 		return id.getOrdemServico();
 	}
-	
-	//Set Ordem
 	
 	public Servico getServico() {
 		return id.getServico();
 	}
 	
-	//Set Servico
-
 	public ServicoOrdemPK getId() {
 		return id;
 	}

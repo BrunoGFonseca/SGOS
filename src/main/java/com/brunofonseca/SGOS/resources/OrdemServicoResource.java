@@ -7,21 +7,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.brunofonseca.SGOS.domain.Cliente;
-import com.brunofonseca.SGOS.services.ClienteService;
+import com.brunofonseca.SGOS.domain.OrdemServico;
+import com.brunofonseca.SGOS.services.OrdemServicoService;
 
 @RestController
-@RequestMapping(value = "/clientes")
+@RequestMapping(value = "/ordens")
 
-public class ClienteResource {
+public class OrdemServicoResource {
 
 	@Autowired
-	private ClienteService clienteService;
+	private OrdemServicoService ordemServicoService;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
 
-		Cliente obj = clienteService.find(id);
+		OrdemServico obj = ordemServicoService.find(id);
 		return ResponseEntity.ok(obj);
 	}
 }
