@@ -19,7 +19,7 @@ public class OrdemServicoResource {
 	private OrdemServicoService ordemServicoService;
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
+	public ResponseEntity<OrdemServico> find(@PathVariable Integer id) {
 
 		OrdemServico obj = ordemServicoService.find(id);
 		return ResponseEntity.ok(obj);

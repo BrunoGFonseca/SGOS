@@ -25,4 +25,9 @@ public class CategoriaProdutoService {
 		obj.setId(null);
 		return repoCatProd.save(obj);
 	}
+	
+	public CategoriaProduto update(CategoriaProduto obj) {
+		find(obj.getId());
+		return repoCatProd.save(obj);
+	}
 }
