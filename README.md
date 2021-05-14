@@ -31,3 +31,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **ItemOrdem, ItemOrdemPk e ServicoOrdem, ServicoOrdemPK**: Nesse commit foi feito a relação entre os itens e serviços com as ordens. <br /><br />
 - **EndPoint /ordens/{id} criado**: Criação do acesso para as ordens de servico via endpoint. <br /><br />
 - **Atualizando para usar somente o JsonIgnore**: Ajuste nas classes de dominio. <br /><br />
+- **Inserindo novas Categorias com método POST**: Criação do método POST para a categoria_produtos e categoria_servicos. <br /><br />
