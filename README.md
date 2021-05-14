@@ -33,3 +33,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Atualizando para usar somente o JsonIgnore**: Ajuste nas classes de dominio. <br /><br />
 - **Inserindo novas Categorias com método POST**: Criação do método POST para a categoria_produtos e categoria_servicos. <br /><br />
 - **Atualizando Categorias com método PUT**: Criação do método PUT para a categoria_produtos e categoria_servicos. <br /><br />
+- **Deletando Categorias com método DELETE**: Criação do método DELETE para a categoria_produtos e categoria_servicos. <br /><br />

@@ -44,4 +44,11 @@ public class CategoriaProdutoResource {
 		obj = catProdService.update(obj);
 		return ResponseEntity.noContent().build();
 	}
+	
+	//Deletando uma categoria
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+		catProdService.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 }
