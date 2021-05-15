@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.brunofonseca.SGOS.domain.CategoriaServico;
+import com.brunofonseca.SGOS.dto.CategoriaServicoDTO;
 import com.brunofonseca.SGOS.repositories.CategoriaServicoRepository;
 import com.brunofonseca.SGOS.services.exceptions.DataIntegrityException;
 import com.brunofonseca.SGOS.services.exceptions.ObjectNotFoundException;
@@ -54,5 +55,8 @@ public class CategoriaServicoService {
 		catch (DataIntegrityViolationException e){
 			throw new DataIntegrityException("Não é possível excluir uma categoria de serviço que tenha serviços associados.");
 		}
+	}
+	public CategoriaServico fromDTO(CategoriaServicoDTO objDTO) {
+		return new CategoriaServico(objDTO.getId(), objDTO.getNome());
 	}
 }

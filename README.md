@@ -36,3 +36,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Deletando Categorias com método DELETE**: Criação do método DELETE para a categoria_produtos e categoria_servicos. <br /><br />
 - **Listando todas categorias usando DTO**: Criação dos DTOs da categorias e usando eles para exibir apenas as categorias sem os produtos relacioandos. <br /><br />
 - **Paginação com parametros opcionais**: É possível paginar as categorias. <br /><br />
+- **Validação sintática usando o BEAN VALIDATION**: Adicionando validações sem aceso a dados nos nomes das categorias. <br /><br />

@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.brunofonseca.SGOS.domain.CategoriaProduto;
+import com.brunofonseca.SGOS.dto.CategoriaProdutoDTO;
 import com.brunofonseca.SGOS.repositories.CategoriaProdutoRepository;
 import com.brunofonseca.SGOS.services.exceptions.DataIntegrityException;
 import com.brunofonseca.SGOS.services.exceptions.ObjectNotFoundException;
@@ -54,5 +55,9 @@ public class CategoriaProdutoService {
 		catch (DataIntegrityViolationException e){
 			throw new DataIntegrityException("Não é possível excluir uma categoria de produto que tenha produtos associados.");
 		}
+	}
+	
+	public CategoriaProduto fromDTO(CategoriaProdutoDTO objDTO) {
+		return new CategoriaProduto(objDTO.getId(), objDTO.getNome());
 	}
 }
