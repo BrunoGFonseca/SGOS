@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -38,6 +40,18 @@ public class CategoriaProdutoResource {
 		List<CategoriaProduto> listaCatProd = catProdService.findAll();
 		List<CategoriaProdutoDTO> listaCatProdDTO = listaCatProd.stream().map(obj -> new CategoriaProdutoDTO(obj)).collect(Collectors.toList());
 		return ResponseEntity.ok(listaCatProdDTO);
+	}
+	
+	//Busca paginada
+	@RequestMapping(value="/page", method = RequestMethod.GET)
+	public ResponseEntity<Page<CategoriaProdutoDTO>> findPage(
+			@RequestParam(value="page", defaultValue = "0") Integer page, 
+			@RequestParam(value="linesPerPage", defaultValue = "24")  Integer linesPerPage, 
+			@RequestParam(value="orderBy", defaultValue = "nome")  String orderBy, 
+			@RequestParam(value="direction", defaultValue = "ASC")  String direction) {
+		Page<CategoriaProduto> listaCatProd = catProdService.findPage(page, linesPerPage, orderBy, direction);
+		Page<CategoriaProdutoDTO> listaCatProdDTO = listaCatProd.map(obj -> new CategoriaProdutoDTO(obj));
+		return ResponseEntity.ok().body(listaCatProdDTO);
 	}
 	
 	//Criando uma categoria
