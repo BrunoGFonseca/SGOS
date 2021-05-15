@@ -1,5 +1,6 @@
 package com.brunofonseca.SGOS.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class CategoriaProdutoService {
 		Optional<CategoriaProduto> obj = repoCatProd.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		"Objeto não encontrado! Id: " + id + ", Tipo: " + CategoriaProduto.class.getName()));
+	}
+	
+	public List<CategoriaProduto> findAll(){
+		return repoCatProd.findAll();
 	}
 	
 	public CategoriaProduto insert(CategoriaProduto obj) {

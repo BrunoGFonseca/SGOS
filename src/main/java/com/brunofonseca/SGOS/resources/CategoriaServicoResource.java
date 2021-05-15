@@ -1,6 +1,8 @@
 package com.brunofonseca.SGOS.resources;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.brunofonseca.SGOS.domain.CategoriaServico;
+import com.brunofonseca.SGOS.dto.CategoriaServicoDTO;
 import com.brunofonseca.SGOS.services.CategoriaServicoService;
 
 @RestController
@@ -27,6 +30,14 @@ public class CategoriaServicoResource {
 		
 		CategoriaServico obj = catServService.find(id);
 		return ResponseEntity.ok(obj);
+	}
+	
+	//Buscando lista de categorias
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<CategoriaServicoDTO>> findAll() {
+		List<CategoriaServico> listaCatServ = catServService.findAll();
+		List<CategoriaServicoDTO> listaCatServDTO = listaCatServ.stream().map(obj -> new CategoriaServicoDTO(obj)).collect(Collectors.toList());
+		return ResponseEntity.ok(listaCatServDTO);
 	}
 	
 	//Criando uma categoria
