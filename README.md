@@ -40,3 +40,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Retorno da validação personalizado**: Criando um padrão para o retorno dos erros. <br /><br />
 - **Criando método PUT, DELETE, GET para classe cliente**: Desenvolvendo CRUD para classe de clientes. <br /><br />
 - **Ajustes**: Ajuste nas CategoriaService e no construtor do pagamento <br /><br />
+- **Inserindo um cliente com o método POST**: Criação do metodo POST para a classe clientes <br /><br />

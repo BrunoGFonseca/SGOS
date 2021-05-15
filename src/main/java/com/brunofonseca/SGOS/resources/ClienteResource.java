@@ -1,5 +1,6 @@
 package com.brunofonseca.SGOS.resources;
 
+import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.brunofonseca.SGOS.domain.Cliente;
 import com.brunofonseca.SGOS.dto.ClienteDTO;
+import com.brunofonseca.SGOS.dto.ClienteNewDTO;
 import com.brunofonseca.SGOS.services.ClienteService;
 
 @RestController
@@ -53,6 +56,15 @@ public class ClienteResource {
 		Page<Cliente> list = clienteService.findPage(page, linesPerPage, orderBy, direction);
 		Page<ClienteDTO> listDTO = list.map(obj -> new ClienteDTO(obj));
 		return ResponseEntity.ok().body(listDTO);
+	}
+	
+	//Criando um Cliente
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDTO){
+		Cliente obj = clienteService.fromDTO(objDTO);
+		obj = clienteService.insert(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		return ResponseEntity.created(uri).build();
 	}
 	
 	//Atualizando um cliente
