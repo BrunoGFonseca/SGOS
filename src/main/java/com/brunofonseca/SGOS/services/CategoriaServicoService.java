@@ -43,8 +43,9 @@ public class CategoriaServicoService {
 	}
 	
 	public CategoriaServico update(CategoriaServico obj) {
-		find(obj.getId());
-		return repoServProd.save(obj);
+		CategoriaServico newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repoServProd.save(newObj);
 	}
 	
 	public void delete(Integer id) {
@@ -56,7 +57,12 @@ public class CategoriaServicoService {
 			throw new DataIntegrityException("Não é possível excluir uma categoria de serviço que tenha serviços associados.");
 		}
 	}
+	
 	public CategoriaServico fromDTO(CategoriaServicoDTO objDTO) {
 		return new CategoriaServico(objDTO.getId(), objDTO.getNome());
+	}
+	
+	private void updateData(CategoriaServico newObj, CategoriaServico obj) {
+		newObj.setNome(obj.getNome());
 	}
 }
