@@ -38,3 +38,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Paginação com parametros opcionais**: É possível paginar as categorias. <br /><br />
 - **Validação sintática usando o BEAN VALIDATION**: Adicionando validações sem aceso a dados nos nomes das categorias. <br /><br />
 - **Retorno da validação personalizado**: Criando um padrão para o retorno dos erros. <br /><br />
+- **Criando método PUT, DELETE, GET para classe cliente**: Desenvolvendo CRUD para classe de clientes. <br /><br />
