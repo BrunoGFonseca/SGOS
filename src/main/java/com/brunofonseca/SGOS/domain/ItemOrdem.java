@@ -40,10 +40,18 @@ public class ItemOrdem implements Serializable {
 		return id.getOrdemServico();
 	}
 	
+	public void setOrdemServico(OrdemServico ordemServico) {
+		id.setOrdemServico(ordemServico);
+	}
+	
 	public Produto getProduto() {
 		return id.getProduto();
 	}
 	
+	public void setProduto(Produto produto) {
+		id.setProduto(produto);
+	}
+
 	public ItemOrdemPK getId() {
 		return id;
 	}

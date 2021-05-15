@@ -40,8 +40,16 @@ public class ServicoOrdem implements Serializable {
 		return id.getOrdemServico();
 	}
 	
+	public void setOrdemServico(OrdemServico ordemServico) {
+		id.setOrdemServico(ordemServico);
+	}
+	
 	public Servico getServico() {
 		return id.getServico();
+	}
+	
+	public void setServico(Servico servico) {
+		id.setServico(servico);
 	}
 	
 	public ServicoOrdemPK getId() {
