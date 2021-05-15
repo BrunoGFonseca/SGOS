@@ -31,6 +31,10 @@ public class ServicoOrdem implements Serializable {
 		this.preco = preco;
 	}
 	
+	public double getSubTotal() {
+		return ((preco - desconto) * quantidade);
+	}
+	
 	@JsonIgnore
 	public OrdemServico getOrdemServico() {
 		return id.getOrdemServico();

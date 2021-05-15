@@ -55,6 +55,20 @@ public class OrdemServico implements Serializable {
 		this.cliente = cliente;
 		this.veiculo = veiculo;
 	}
+	
+	public double getValorTotal() {
+		double soma = 0.0;
+		
+		for(ItemOrdem io : itens) {
+			soma = soma + io.getSubTotal();
+		}
+		
+		for(ServicoOrdem so : servicos) {
+			soma = soma + so.getSubTotal();
+		}
+		
+		return soma;
+	}
 
 	public Integer getId() {
 		return id;
