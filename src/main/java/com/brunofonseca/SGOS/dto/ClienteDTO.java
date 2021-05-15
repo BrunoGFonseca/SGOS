@@ -8,7 +8,9 @@ import javax.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
 
 import com.brunofonseca.SGOS.domain.Cliente;
+import com.brunofonseca.SGOS.services.validation.ClienteUpdate;
 
+@ClienteUpdate
 public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -22,6 +24,9 @@ public class ClienteDTO implements Serializable {
 	@Email(message="E-mail Inválido")
 	private String email;
 	
+	@NotEmpty(message="Preenchimento obrigatório")
+	private String cpfOuCnpj;
+	
 	public ClienteDTO() {	
 	}
 	
@@ -29,6 +34,7 @@ public class ClienteDTO implements Serializable {
 		id = obj.getId();
 		nome = obj.getNome();
 		email = obj.getEmail();
+		cpfOuCnpj = obj.getCpfOuCnpj();
 	}
 
 	public Integer getId() {
@@ -54,7 +60,12 @@ public class ClienteDTO implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
 
+	public String getCpfOuCnpj() {
+		return cpfOuCnpj;
+	}
+
+	public void setCpfOuCnpj(String cpfOuCnpj) {
+		this.cpfOuCnpj = cpfOuCnpj;
+	}
 }
