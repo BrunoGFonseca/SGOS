@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.brunofonseca.SGOS.domain.Cidade;
 import com.brunofonseca.SGOS.domain.Cliente;
@@ -51,6 +52,7 @@ public class ClienteService {
 		return clienteRepository.findAll(pageResquest);
 	}
 	
+	@Transactional
 	public Cliente insert(Cliente obj) {
 		obj.setId(null);
 		obj = clienteRepository.save(obj);

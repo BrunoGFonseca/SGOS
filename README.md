@@ -44,3 +44,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Ajuste na deleção de clientes**: Fazendo com que os endeços e veiculos de um cliente sejam deletados caso o cliente for excluido e não possuir pedidos <br /><br />
 - **Validação customizada para CPF e CNPJ**: Foi criado uma validação customizada para os campos de CNPJ e CPF na inclusão do cliente <br /><br />
 - **Validação customizada para CPF e CNPJ já existente**: Foi criado uma validação customizada para impedir que um cpf ou cnpj já cadastrado seja inserido <br /><br />
+- **Ajuste ClienteService**: Adicionado a anotação @Transactional na classe ClienteService <br /><br />
