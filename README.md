@@ -41,3 +41,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Criando método PUT, DELETE, GET para classe cliente**: Desenvolvendo CRUD para classe de clientes. <br /><br />
 - **Ajustes**: Ajuste nas CategoriaService e no construtor do pagamento <br /><br />
 - **Inserindo um cliente com o método POST**: Criação do metodo POST para a classe clientes <br /><br />
+- **Ajuste na deleção de clientes**: Fazendo com que os endeços e veiculos de um cliente sejam deletados caso o cliente for excluido e não possuir pedidos <br /><br />
