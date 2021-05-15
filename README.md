@@ -46,3 +46,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Validação customizada para CPF e CNPJ já existente**: Foi criado uma validação customizada para impedir que um cpf ou cnpj já cadastrado seja inserido <br /><br />
 - **Ajuste ClienteService**: Adicionado a anotação @Transactional na classe ClienteService <br /><br />
 - **Validação customizada: cpf ou cnpj repetido na atualização do cliente**: Foi criado uma validação customizada para impedir que um cpf ou cnpj já cadastrado seja inserido na atualização de um cliente <br /><br />
+- **Busca de ordens por nome e categoria**: Criada a busca de ordem por nome e categoria <br /><br />
