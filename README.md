@@ -52,3 +52,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplica√ß√
 - **Profile de TESTE criado**: Divisao dos profiles da aplicacao (TESTE). <br /><br />
 - **Profile de DEV criado**: Divisao dos profiles da aplicacao (DEV). <br /><br />
 - **Profile de PROD criado**: Divisao dos profiles da aplicacao (PROD) e criacao do arquivo procfile. <br /><br />
+- **Adicionado System.properties**: System.properties criado. <br /><br />
