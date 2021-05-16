@@ -89,7 +89,7 @@ public class OrdemServicoService {
 		itemOrdemServicoRepository.saveAll(obj.getItens());
 		servicoOrdemServicoRepository.saveAll(obj.getServicos());
 		
-		emailService.sendOrderConfirmationEmail(obj);
+		emailService.sendOrderConfirmationHtmlEmail(obj);
 		
 		return obj;
 	}
