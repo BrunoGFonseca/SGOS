@@ -50,3 +50,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Adicionado valores totais de servicos, produtos e da ordem**: Adicionado as funções para calculo dos valores. <br /><br />
 - **Inserindo um pedidos**: Ajustando sistema para receber pedidos. <br /><br />
 - **Profile de TESTE criado**: Divisao dos profiles da aplicacao (TESTE). <br /><br />
+- **Profile de DEV criado**: Divisao dos profiles da aplicacao (DEV). <br /><br />
