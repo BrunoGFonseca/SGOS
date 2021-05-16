@@ -15,6 +15,7 @@ import com.brunofonseca.SGOS.repositories.ItemOrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.OrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.PagamentoRepository;
 import com.brunofonseca.SGOS.repositories.ServicoOrdemServicoRepository;
+import com.brunofonseca.SGOS.repositories.VeiculoRepository;
 import com.brunofonseca.SGOS.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -40,7 +41,13 @@ public class OrdemServicoService {
 	
 	@Autowired
 	private ServicoOrdemServicoRepository servicoOrdemServicoRepository;
-
+	
+	@Autowired
+	private ClienteService clienteService;
+	
+	@Autowired
+	private VeiculoRepository veiculoRepository;
+	
 	public OrdemServico find(Integer id) {
 		Optional<OrdemServico> obj = ordemServicoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
@@ -52,6 +59,7 @@ public class OrdemServicoService {
 		
 		obj.setId(null);
 		obj.setData(new Date());
+		obj.setCliente(clienteService.find(obj.getCliente().getId()));	
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setOrdemServico(obj);
 		if(obj.getPagamento() instanceof PagamentoComBoleto) {
@@ -63,18 +71,22 @@ public class OrdemServicoService {
 		
 		for(ItemOrdem io : obj.getItens()) {
 			io.setDesconto(0.0);
-			io.setPreco(produtoService.find(io.getProduto().getId()).getPreco());
+			io.setProduto(produtoService.find(io.getProduto().getId()));
+			io.setPreco(io.getProduto().getPreco());
 			io.setOrdemServico(obj);
 		}
 		
 		for(ServicoOrdem so : obj.getServicos()) {
 			so.setDesconto(0.0);
-			so.setPreco(servicoService.find(so.getServico().getId()).getPreco());
+			so.setServico(servicoService.find(so.getServico().getId()));
+			so.setPreco(so.getServico().getPreco());
 			so.setOrdemServico(obj);
 		}
 		
 		itemOrdemServicoRepository.saveAll(obj.getItens());
 		servicoOrdemServicoRepository.saveAll(obj.getServicos());
+		
+		System.out.println(obj);
 		
 		return obj;
 	}
