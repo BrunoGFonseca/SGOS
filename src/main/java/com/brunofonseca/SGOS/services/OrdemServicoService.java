@@ -46,6 +46,9 @@ public class OrdemServicoService {
 	private ClienteService clienteService;
 	
 	@Autowired
+	private EmailService emailService;
+	
+	@Autowired
 	private VeiculoRepository veiculoRepository;
 	
 	public OrdemServico find(Integer id) {
@@ -86,7 +89,7 @@ public class OrdemServicoService {
 		itemOrdemServicoRepository.saveAll(obj.getItens());
 		servicoOrdemServicoRepository.saveAll(obj.getServicos());
 		
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
 		
 		return obj;
 	}

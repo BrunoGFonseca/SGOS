@@ -8,10 +8,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.brunofonseca.SGOS.services.DBService;
+import com.brunofonseca.SGOS.services.EmailService;
+import com.brunofonseca.SGOS.services.MockEmailService;
 
 @Configuration
 @Profile("test")
-public class TesteConfig {
+public class TestConfig {
 	
 	@Autowired
 	private DBService dbService;
@@ -20,6 +22,11 @@ public class TesteConfig {
 	public boolean instantiateDatabase() throws ParseException {
 		dbService.instantiateTestDatabase();
 		return true;
+	}
+	
+	@Bean
+	public EmailService emailService() {
+		return new MockEmailService();
 	}
 
 }
