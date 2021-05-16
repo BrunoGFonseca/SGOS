@@ -54,4 +54,5 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplica√ß√
 - **Profile de PROD criado**: Divisao dos profiles da aplicacao (PROD) e criacao do arquivo procfile. <br /><br />
 - **Adicionado System.properties**: System.properties criado. <br /><br />
 - **criadno metodo toString da ordem de servico**: metodo toString das ordens de servico criado para converter a ordem para enviar via e-mail. <br /><br />
-- **MockEmailService com Logger. Padroes Strategy e Template Method **: MockEmailService criado para simular o envio das ordens via email.<br /><br />
+- **MockEmailService com Logger. Padroes Strategy e Template Method**: MockEmailService criado para simular o envio das ordens via email.<br /><br />
+- **Implementando SmtpEmailService com servidor do Google**: SmtpEmailService criado para efetuar o envio das ordens via email.<br /><br />

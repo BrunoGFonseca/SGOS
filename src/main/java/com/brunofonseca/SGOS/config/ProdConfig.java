@@ -13,8 +13,8 @@ import com.brunofonseca.SGOS.services.EmailService;
 import com.brunofonseca.SGOS.services.SmtpEmailService;
 
 @Configuration
-@Profile("dev")
-public class DevConfig {
+@Profile("prod")
+public class ProdConfig {
 	
 	@Autowired
 	private DBService dbService;
@@ -37,5 +37,4 @@ public class DevConfig {
 	public EmailService emailService() {
 		return new SmtpEmailService();
 	}
-
 }
