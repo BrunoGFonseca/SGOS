@@ -35,3 +35,25 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Atualizando Categorias com método PUT**: Criação do método PUT para a categoria_produtos e categoria_servicos. <br /><br />
 - **Deletando Categorias com método DELETE**: Criação do método DELETE para a categoria_produtos e categoria_servicos. <br /><br />
 - **Listando todas categorias usando DTO**: Criação dos DTOs da categorias e usando eles para exibir apenas as categorias sem os produtos relacioandos. <br /><br />
+- **Paginação com parametros opcionais**: É possível paginar as categorias. <br /><br />
+- **Validação sintática usando o BEAN VALIDATION**: Adicionando validações sem aceso a dados nos nomes das categorias. <br /><br />
+- **Retorno da validação personalizado**: Criando um padrão para o retorno dos erros. <br /><br />
+- **Criando método PUT, DELETE, GET para classe cliente**: Desenvolvendo CRUD para classe de clientes. <br /><br />
+- **Ajustes**: Ajuste nas CategoriaService e no construtor do pagamento <br /><br />
+- **Inserindo um cliente com o método POST**: Criação do metodo POST para a classe clientes <br /><br />
+- **Ajuste na deleção de clientes**: Fazendo com que os endeços e veiculos de um cliente sejam deletados caso o cliente for excluido e não possuir pedidos <br /><br />
+- **Validação customizada para CPF e CNPJ**: Foi criado uma validação customizada para os campos de CNPJ e CPF na inclusão do cliente <br /><br />
+- **Validação customizada para CPF e CNPJ já existente**: Foi criado uma validação customizada para impedir que um cpf ou cnpj já cadastrado seja inserido <br /><br />
+- **Ajuste ClienteService**: Adicionado a anotação @Transactional na classe ClienteService <br /><br />
+- **Validação customizada: cpf ou cnpj repetido na atualização do cliente**: Foi criado uma validação customizada para impedir que um cpf ou cnpj já cadastrado seja inserido na atualização de um cliente <br /><br />
+- **Busca de ordens por nome e categoria**: Criada a busca de ordem por nome e categoria <br /><br />
+- **Adicionado valores totais de servicos, produtos e da ordem**: Adicionado as funções para calculo dos valores. <br /><br />
+- **Inserindo um pedidos**: Ajustando sistema para receber pedidos. <br /><br />
+- **Profile de TESTE criado**: Divisao dos profiles da aplicacao (TESTE). <br /><br />
+- **Profile de DEV criado**: Divisao dos profiles da aplicacao (DEV). <br /><br />
+- **Profile de PROD criado**: Divisao dos profiles da aplicacao (PROD) e criacao do arquivo procfile. <br /><br />
+- **Adicionado System.properties**: System.properties criado. <br /><br />
+- **criadno metodo toString da ordem de servico**: metodo toString das ordens de servico criado para converter a ordem para enviar via e-mail. <br /><br />
+- **MockEmailService com Logger. Padroes Strategy e Template Method**: MockEmailService criado para simular o envio das ordens via email.<br /><br />
+- **Implementando SmtpEmailService com servidor do Google**: SmtpEmailService criado para efetuar o envio das ordens via email.<br /><br />
+- **Email em HTML**: Criando corpo do do email em HTML.<br /><br />

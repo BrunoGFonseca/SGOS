@@ -37,6 +37,26 @@
 					th:text="${#numbers.formatDecimal(item.subTotal, 0, 'POINT', 2,'COMMA')}">subTotal</td>
 			</tr>
 		</table>
+		
+		<br/>
+		
+		<table border="1">
+			<tr>
+				<th>Serviço</th>
+				<th>Quantidade</th>
+				<th>Preço unitário</th>
+				<th>Subtotal</th>
+			</tr>
+			<tr th:each="servico : ${ordem.servicos}">
+				<td th:text="${servico.servico.nome}">nome</td>
+				<td th:text="${servico.quantidade}">quantidade</td>
+				<td
+					th:text="${#numbers.formatDecimal(servico.preco, 0, 'POINT', 2,'COMMA')}">preco</td>
+				<td
+					th:text="${#numbers.formatDecimal(servico.subTotal, 0, 'POINT', 2,'COMMA')}">subTotal</td>
+			</tr>
+		</table>
+
 		<p>
 			Valor total: <span
 				th:text="${#numbers.formatDecimal(ordem.valorTotal, 0,'POINT', 2, 'COMMA')}"></span>
