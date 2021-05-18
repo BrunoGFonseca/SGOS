@@ -57,4 +57,5 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **MockEmailService com Logger. Padroes Strategy e Template Method**: MockEmailService criado para simular o envio das ordens via email.<br /><br />
 - **Implementando SmtpEmailService com servidor do Google**: SmtpEmailService criado para efetuar o envio das ordens via email.<br /><br />
 - **Email em HTML**: Criando corpo do do email em HTML.<br /><br />
-- **Correção no HTML**: Correção no corpo HTML dos e-mails para que os serviços fossem enviados junto aos produtos.<br /><br />
+- **Correção do corpo HTML do e-mail**: Correção no corpo HTML dos e-mails para que os serviços fossem enviados junto aos produtos.<br /><br />
+- **Configuração dos arquivos base para o funcionamento do Spring Security**: Criação da configuração inicial para utilização do Spring Security<br /><br />
