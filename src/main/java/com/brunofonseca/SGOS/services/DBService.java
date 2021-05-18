@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.brunofonseca.SGOS.domain.CategoriaProduto;
@@ -79,6 +80,9 @@ public class DBService {
 
 	@Autowired
 	private ServicoOrdemServicoRepository servicoOrdemServicoRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	public void instantiateTestDatabase() throws ParseException {
 
@@ -182,13 +186,23 @@ public class DBService {
 
 		// Instanciando Cliente 01, telefone e endereços
 
-		Cliente cli1 = new Cliente(null, "Bruno Gabriel Fonseca", "brunogabrielfonseca@hotmail.com", "39053854819",
-				TipoCliente.PESSOAFISICA);
+		Cliente cli1 = new Cliente(null, // Id
+				"Bruno Gabriel Fonseca", // Nome
+				"brunogabrielfonseca@hotmail.com", // E-mail
+				"39053854819", // CPF
+				TipoCliente.PESSOAFISICA, // Tipo
+				bCryptPasswordEncoder.encode("123")); // Senha
 
 		cli1.getTelefones().addAll(Arrays.asList("992954181", "992451800"));
 
-		Endereco e1 = new Endereco(null, "Rua Angelo Guido de Gaitani", "221", null, "Manoel Penna", "14098327", cli1,
-				c4);
+		Endereco e1 = new Endereco(null, // Id
+				"Rua Angelo Guido de Gaitani", // Rua
+				"221", // Numero
+				null, // Complemento
+				"Manoel Penna", // Bairro
+				"14098327", // CEP
+				cli1, // Cliente
+				c4);// Cidade
 
 		Endereco e2 = new Endereco(null, "Rua do Carmo", "377", "Ap 107", "Abadia", "38025000 ", cli1, c1);
 
