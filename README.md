@@ -66,3 +66,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Autorizando EndPoins especificos para ADM**: Criação da validação de usuário para certos endpoint (Classe Resource)<br /><br />
 - **Restrição de conteúdo: cliente só recupera ele mesmo**: Clientes só conseguem acessar os próprios cadastros<br /><br />
 - **Restrição de conteúdo: cliente só recupera suas ordens**: Clientes só conseguem acessar os próprios ordens de serviço<br /><br />
+- **Refresh token**: Criação da função de Refresh token<br /><br />
