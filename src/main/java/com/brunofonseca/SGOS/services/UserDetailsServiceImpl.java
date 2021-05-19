@@ -30,5 +30,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 				cli.getSenha(),
 				cli.getPerfis());
 	}
-
 }

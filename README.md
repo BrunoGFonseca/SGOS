@@ -62,3 +62,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Adicionando o campo de senha para o cliente**: Criação da senha para a classe cliente<br /><br />
 - **Adicionando niveis de perfis ao projeto**: Criação dos perfis de Administrador e de clientes<br /><br />
 - **Implementando autenticacao e geracao do token JWT**: A geração e a autenticação do token usando o JWT foi disponibilizada<br /><br />
+- **Implementando autorização de acesso a partir do login**: Foi criada a autorização de login a pós autenticação<br /><br />
