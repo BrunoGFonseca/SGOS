@@ -68,3 +68,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Restrição de conteúdo: cliente só recupera suas ordens**: Clientes só conseguem acessar os próprios ordens de serviço<br /><br />
 - **Refresh token**: Criação da função de Refresh token<br /><br />
 - **Esqueci a senha**: Criação da função de Esqueci a senha<br /><br />
+- **Ajuste JWTAuthenticatorFilter**: Ajuste na classe JWTAuthenticatorFilter<br /><br />
