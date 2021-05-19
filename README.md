@@ -65,3 +65,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Implementando autorização de acesso a partir do login**: Foi criada a autorização de login a pós autenticação<br /><br />
 - **Autorizando EndPoins especificos para ADM**: Criação da validação de usuário para certos endpoint (Classe Resource)<br /><br />
 - **Restrição de conteúdo: cliente só recupera ele mesmo**: Clientes só conseguem acessar os próprios cadastros<br /><br />
+- **Restrição de conteúdo: cliente só recupera suas ordens**: Clientes só conseguem acessar os próprios ordens de serviço<br /><br />
