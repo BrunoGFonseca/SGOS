@@ -186,23 +186,23 @@ public class DBService {
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
 
 		// Instanciando Cliente 01, telefone e endereços
-
-		Cliente cli1 = new Cliente(null, // Id
-				"Bruno Gabriel Fonseca", // Nome
-				"brunogabrielfonseca@hotmail.com", // E-mail
-				"39053854819", // CPF
-				TipoCliente.PESSOAFISICA, // Tipo
-				bCryptPasswordEncoder.encode("123")); // Senha
-		cli1.getTelefones().addAll(Arrays.asList("992954181", "992451800"));
-		cli1.addPerfil(Perfil.ADMIN);
 		
-		Cliente cli2 = new Cliente(null, // Id
+		Cliente cli1 = new Cliente(null, // Id
 				"Carla Fernanda de Paula Chimenes", // Nome
 				"carlanandastz@hotmail.com", // E-mail
 				"04029355862", // CPF
 				TipoCliente.PESSOAFISICA, // Tipo
 				bCryptPasswordEncoder.encode("123")); // Senha
-		cli2.getTelefones().addAll(Arrays.asList("992954182", "991311340"));
+		cli1.getTelefones().addAll(Arrays.asList("992954182", "991311340"));
+
+		Cliente cli2 = new Cliente(null, // Id
+				"Bruno Gabriel Fonseca", // Nome
+				"brunogabrielfonseca@hotmail.com", // E-mail
+				"39053854819", // CPF
+				TipoCliente.PESSOAFISICA, // Tipo
+				bCryptPasswordEncoder.encode("123")); // Senha
+		cli2.getTelefones().addAll(Arrays.asList("992954181", "992451800"));
+		cli2.addPerfil(Perfil.ADMIN);
 		
 		Endereco e1 = new Endereco(null, // Id
 				"Rua Angelo Guido de Gaitani", // Rua

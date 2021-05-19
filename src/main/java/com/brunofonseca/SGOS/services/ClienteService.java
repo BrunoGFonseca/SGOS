@@ -16,12 +16,15 @@ import com.brunofonseca.SGOS.domain.Cidade;
 import com.brunofonseca.SGOS.domain.Cliente;
 import com.brunofonseca.SGOS.domain.Endereco;
 import com.brunofonseca.SGOS.domain.Veiculo;
+import com.brunofonseca.SGOS.domain.enums.Perfil;
 import com.brunofonseca.SGOS.domain.enums.TipoCliente;
 import com.brunofonseca.SGOS.dto.ClienteDTO;
 import com.brunofonseca.SGOS.dto.ClienteNewDTO;
 import com.brunofonseca.SGOS.repositories.ClienteRepository;
 import com.brunofonseca.SGOS.repositories.EnderecoRepository;
 import com.brunofonseca.SGOS.repositories.VeiculoRepository;
+import com.brunofonseca.SGOS.security.UserSS;
+import com.brunofonseca.SGOS.services.exceptions.AuthorizationException;
 import com.brunofonseca.SGOS.services.exceptions.DataIntegrityException;
 import com.brunofonseca.SGOS.services.exceptions.ObjectNotFoundException;
 
@@ -42,6 +45,12 @@ public class ClienteService {
 	
 	
 	public Cliente find(Integer id) {
+		
+		UserSS user = UserService.authenticated();
+		if(user == null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
 		Optional<Cliente> obj = clienteRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
