@@ -24,6 +24,7 @@ import com.brunofonseca.SGOS.domain.Servico;
 import com.brunofonseca.SGOS.domain.ServicoOrdem;
 import com.brunofonseca.SGOS.domain.Veiculo;
 import com.brunofonseca.SGOS.domain.enums.EstadoPagamento;
+import com.brunofonseca.SGOS.domain.enums.Perfil;
 import com.brunofonseca.SGOS.domain.enums.TipoCliente;
 import com.brunofonseca.SGOS.repositories.CategoriaProdutoRepository;
 import com.brunofonseca.SGOS.repositories.CategoriaServicoRepository;
@@ -192,9 +193,17 @@ public class DBService {
 				"39053854819", // CPF
 				TipoCliente.PESSOAFISICA, // Tipo
 				bCryptPasswordEncoder.encode("123")); // Senha
-
 		cli1.getTelefones().addAll(Arrays.asList("992954181", "992451800"));
-
+		cli1.addPerfil(Perfil.ADMIN);
+		
+		Cliente cli2 = new Cliente(null, // Id
+				"Carla Fernanda de Paula Chimenes", // Nome
+				"carlanandastz@hotmail.com", // E-mail
+				"04029355862", // CPF
+				TipoCliente.PESSOAFISICA, // Tipo
+				bCryptPasswordEncoder.encode("123")); // Senha
+		cli2.getTelefones().addAll(Arrays.asList("992954182", "991311340"));
+		
 		Endereco e1 = new Endereco(null, // Id
 				"Rua Angelo Guido de Gaitani", // Rua
 				"221", // Numero
@@ -204,21 +213,30 @@ public class DBService {
 				cli1, // Cliente
 				c4);// Cidade
 
-		Endereco e2 = new Endereco(null, "Rua do Carmo", "377", "Ap 107", "Abadia", "38025000 ", cli1, c1);
+		Endereco e2 = new Endereco(null, // Id
+				"Rua do Carmo", // Rua
+				"377", // Numero
+				"Ap 107", // Complemento
+				"Abadia", // Bairro
+				"38025000 ", // CEP
+				cli2, // Cliente
+				c1);// Cidade
 
 		// Associando endereços aos clientes
-		cli1.getEnderecos().addAll(Arrays.asList(e1, e2));
+		cli1.getEnderecos().addAll(Arrays.asList(e1));
+		cli2.getEnderecos().addAll(Arrays.asList(e2));
 
 		// Salvando clientes e enderecos.
-		clienteRepository.saveAll(Arrays.asList(cli1));
+		clienteRepository.saveAll(Arrays.asList(cli1, cli2));
 		enderecoRepository.saveAll(Arrays.asList(e1, e2));
 
 		// Instaciando veiculo
 		Veiculo v1 = new Veiculo(null, "Uno", "BHK8177", "1997", cli1);
-		Veiculo v2 = new Veiculo(null, "Celta", "DNK2292", "2002", cli1);
+		Veiculo v2 = new Veiculo(null, "Celta", "DNK2292", "2002", cli2);
 
 		// Associando veiculos ao cliente
-		cli1.getVeiculos().addAll(Arrays.asList(v1, v2));
+		cli1.getVeiculos().addAll(Arrays.asList(v1));
+		cli2.getVeiculos().addAll(Arrays.asList(v2));
 
 		// Salvando veiculo
 		veiculoRepository.saveAll(Arrays.asList(v1, v2));

@@ -60,3 +60,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Correção do corpo HTML do e-mail**: Correção no corpo HTML dos e-mails para que os serviços fossem enviados junto aos produtos.<br /><br />
 - **Configuração dos arquivos base para o funcionamento do Spring Security**: Criação da configuração inicial para utilização do Spring Security<br /><br />
 - **Adicionando o campo de senha para o cliente**: Criação da senha para a classe cliente<br /><br />
+- **Adicionando niveis de perfis ao projeto**: Criação dos perfis de Administrador e de clientes<br /><br />
