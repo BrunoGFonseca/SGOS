@@ -69,4 +69,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Refresh token**: Criação da função de Refresh token<br /><br />
 - **Esqueci a senha**: Criação da função de Esqueci a senha<br /><br />
 - **Ajuste JWTAuthenticatorFilter**: Ajuste na classe JWTAuthenticatorFilter<br /><br />
-- **Salvando primeiro arquivo no S3**:Primeiro arquivo salvo na AWS<br /><br />
+- **Enviando imagem via endpoint**:Disponibilização do envio de imagens pelo endpoint<br /><br />
