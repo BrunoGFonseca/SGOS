@@ -70,3 +70,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Esqueci a senha**: Criação da função de Esqueci a senha<br /><br />
 - **Ajuste JWTAuthenticatorFilter**: Ajuste na classe JWTAuthenticatorFilter<br /><br />
 - **Enviando imagem via endpoint**:Disponibilização do envio de imagens pelo endpoint<br /><br />
+- **Tratando exceções adequadamente**:Criando mais tratativas para possíveis erros<br /><br />
