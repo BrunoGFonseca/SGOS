@@ -81,7 +81,7 @@ public class DBService {
 
 	@Autowired
 	private ServicoOrdemServicoRepository servicoOrdemServicoRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -169,24 +169,49 @@ public class DBService {
 		// ------------------------------------------------------------------------------------------------
 
 		// Instanciando Estados e cidades
-		Estado est1 = new Estado(null, "Minas Gerais");
-		Estado est2 = new Estado(null, "São Paulo");
-
-		Cidade c1 = new Cidade(null, "Uberaba", est1);
-		Cidade c2 = new Cidade(null, "Uberlandia", est1);
-		Cidade c3 = new Cidade(null, "São Paulo", est2);
-		Cidade c4 = new Cidade(null, "Ribeirao Preto", est2);
+		Estado est1 = new Estado(null, "Acre");
+		Estado est2 = new Estado(null, "Alagoas");
+		Estado est3 = new Estado(null, "Amapá");
+		Estado est4 = new Estado(null, "Amazonas");
+		Estado est5 = new Estado(null, "Bahia");
+		Estado est6 = new Estado(null, "Brasília");
+		Estado est7 = new Estado(null, "Ceará");
+		Estado est8 = new Estado(null, "Espírito Santo");
+		Estado est9 = new Estado(null, "Goiás");
+		Estado est10 = new Estado(null, "Maranhão");
+		Estado est11 = new Estado(null, "Mato Grosso");
+		Estado est12 = new Estado(null, "Mato Grosso do Sul");
+		Estado est13 = new Estado(null, "Minas Gerais");
+		Estado est14 = new Estado(null, "Pará");
+		Estado est15 = new Estado(null, "Paraíba");
+		Estado est16 = new Estado(null, "Paraná");
+		Estado est17 = new Estado(null, "Pernambuco");
+		Estado est18 = new Estado(null, "Piauí");
+		Estado est19 = new Estado(null, "Rio de Janeiro");
+		Estado est20 = new Estado(null, "Rio Grande do Norte");
+		Estado est21 = new Estado(null, "Rio Grande do Sul");
+		Estado est22 = new Estado(null, "Rondônia");
+		Estado est23 = new Estado(null, "Roraima");
+		Estado est24 = new Estado(null, "Santa Catarina");
+		Estado est25 = new Estado(null, "São Paulo");
+		Estado est26 = new Estado(null, "Sergipe");
+		Estado est27 = new Estado(null, "Tocantins");
+		
+		Cidade c1 = new Cidade(null, "Uberaba", est13);
+		Cidade c2 = new Cidade(null, "Uberlandia", est13);
+		Cidade c3 = new Cidade(null, "São Paulo", est25);
+		Cidade c4 = new Cidade(null, "Ribeirao Preto", est25);
 
 		// Vinculado cidades nos estados
 		est1.getCidades().addAll(Arrays.asList(c1, c2));
 		est2.getCidades().addAll(Arrays.asList(c3, c4));
 
 		// Salvando Estados e Cidades
-		estadoRepository.saveAll(Arrays.asList(est1, est2));
+		estadoRepository.saveAll(Arrays.asList(est1, est2, est3, est4, est5, est6, est7, est8, est9, est10, est11, est12, est13, est14, est15, est16, est17, est18, est19, est20, est21, est22, est23, est24, est25, est26, est27));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3, c4));
 
 		// Instanciando Cliente 01, telefone e endereços
-		
+
 		Cliente cli1 = new Cliente(null, // Id
 				"Carla Fernanda de Paula Chimenes", // Nome
 				"carlanandastz@hotmail.com", // E-mail
@@ -203,7 +228,7 @@ public class DBService {
 				bCryptPasswordEncoder.encode("123")); // Senha
 		cli2.getTelefones().addAll(Arrays.asList("992954181", "992451800"));
 		cli2.addPerfil(Perfil.ADMIN);
-		
+
 		Endereco e1 = new Endereco(null, // Id
 				"Rua Angelo Guido de Gaitani", // Rua
 				"221", // Numero

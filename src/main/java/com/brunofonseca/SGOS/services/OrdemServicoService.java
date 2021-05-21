@@ -19,7 +19,6 @@ import com.brunofonseca.SGOS.repositories.ItemOrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.OrdemServicoRepository;
 import com.brunofonseca.SGOS.repositories.PagamentoRepository;
 import com.brunofonseca.SGOS.repositories.ServicoOrdemServicoRepository;
-import com.brunofonseca.SGOS.repositories.VeiculoRepository;
 import com.brunofonseca.SGOS.security.UserSS;
 import com.brunofonseca.SGOS.services.exceptions.AuthorizationException;
 import com.brunofonseca.SGOS.services.exceptions.ObjectNotFoundException;
@@ -54,9 +53,7 @@ public class OrdemServicoService {
 	@Autowired
 	private EmailService emailService;
 	
-	@Autowired
-	private VeiculoRepository veiculoRepository;
-	
+		
 	public OrdemServico find(Integer id) {
 		Optional<OrdemServico> obj = ordemServicoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
