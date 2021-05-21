@@ -77,3 +77,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Expondo o header Authorization(problema de Cors)**:Ajustando AuthResource e JWTAuthenticationFilter para expor o header<br /><br />
 - **Endpoint para buscar cliente por Cpf ou Cnpj**:Criação de um EndPoint que retorna o cliente a partir de um cpf ou cnpj.<br /><br />
 - **Endpoints para buscar estados e cidades**:Criação de um EndPoint que retorna os Estados e as cidades a partir de um estado especifico.<br /><br />
+- **Padronizando as Exceções**:Criando um padrão de exibição das exceções<br /><br />
