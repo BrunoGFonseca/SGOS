@@ -74,5 +74,7 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Salvando URL da imagem em Cliente**:Salvando a url da imagem do cliente<br /><br />
 - **Usando padrão de nomes para imagens**:Criado um padrão para as imagens de perfil dos clientes<br /><br />
 - **Ajustando tamanho da imagem**:Tamanho padrão das imagens de clientes alterada para 200px<br /><br />
+- **Expondo o header Authorization(problema de Cors)**:Ajustando AuthResource e JWTAuthenticationFilter para expor o header<br /><br />
+
 
 

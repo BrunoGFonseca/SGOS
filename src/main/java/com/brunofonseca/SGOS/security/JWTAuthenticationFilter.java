@@ -19,13 +19,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.brunofonseca.SGOS.dto.CredenciaisDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JWTAuthenticatorFilter extends UsernamePasswordAuthenticationFilter {
+public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 	private AuthenticationManager authenticationManager;
 
 	private JWTUtil jwtUtil;
 
-	public JWTAuthenticatorFilter(AuthenticationManager authenticationManager, JWTUtil jwtUtil) {
+	public JWTAuthenticationFilter(AuthenticationManager authenticationManager, JWTUtil jwtUtil) {
 		setAuthenticationFailureHandler(new JWTAuthenticationFailureHandler());
 		this.authenticationManager = authenticationManager;
 		this.jwtUtil = jwtUtil;
@@ -54,6 +54,7 @@ public class JWTAuthenticatorFilter extends UsernamePasswordAuthenticationFilter
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
 		String token = jwtUtil.generationToken(username);
 		res.addHeader("Authorization", "Bearer " + token);
+		res.addHeader("access-control-expose-headers", "Authorization");
 	}
 
 	private class JWTAuthenticationFailureHandler implements AuthenticationFailureHandler {
