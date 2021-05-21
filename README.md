@@ -79,5 +79,5 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Endpoints para buscar estados e cidades**:Criação de um EndPoint que retorna os Estados e as cidades a partir de um estado especifico.<br /><br />
 - **Padronizando as Exceções**:Criando um padrão de exibição das exceções<br /><br />
 - **Liberando CORS para PUT e DELETE**:Liberando CORS para PUT e DELETE<br /><br />
-
+- **Expondo o header location nas respostas**:Liberando header location na requisição REST<br /><br />
 
