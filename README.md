@@ -72,3 +72,4 @@ Para um melhor desenvolvimento, eu decidi que iria montar o BackEnd da aplicaç�
 - **Enviando imagem via endpoint**:Disponibilização do envio de imagens pelo endpoint<br /><br />
 - **Tratando exceções adequadamente**:Criando mais tratativas para possíveis erros<br /><br />
 - **Salvando URL da imagem em Cliente**:Salvando a url da imagem do cliente<br /><br />
+- **Usando padrão de nomes para imagens**:Criado um padrão para as imagens de perfil dos clientes<br /><br />

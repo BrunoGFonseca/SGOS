@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.brunofonseca.SGOS.domain.CategoriaProduto;
 import com.brunofonseca.SGOS.domain.OrdemServico;
-import com.brunofonseca.SGOS.dto.CategoriaProdutoDTO;
 import com.brunofonseca.SGOS.services.OrdemServicoService;
 
 @RestController
