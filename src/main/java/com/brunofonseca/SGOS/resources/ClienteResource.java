@@ -60,7 +60,21 @@ public class ClienteResource {
 		Page<ClienteDTO> listDTO = list.map(obj -> new ClienteDTO(obj));
 		return ResponseEntity.ok().body(listDTO);
 	}
-
+	
+	@RequestMapping(value="/cpfoucnpj", method=RequestMethod.GET)
+	public ResponseEntity<Cliente> findcpfOuCnpj(@RequestParam(value="value") String cpfOuCnpj) {
+		Cliente obj = clienteService.findByCpfOuCnpj(cpfOuCnpj);
+		return ResponseEntity.ok().body(obj);
+	}
+	
+	/*
+	@RequestMapping(value="/email", method=RequestMethod.GET)
+	public ResponseEntity<Cliente> findEmail(@RequestParam(value="value") String email) {
+		Cliente obj = clienteService.findByEmail(email);
+		return ResponseEntity.ok().body(obj);
+	}
+	*/
+	
 	// Criando um Cliente
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDTO) {
